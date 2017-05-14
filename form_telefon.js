@@ -5,7 +5,8 @@
     	/**
     	 * Объект tel упрощает ввод в текстовое поле номера сотового телефона, путём вставки шаблона-подсказки для ввода.
     	 * 
-    	 * Применять следующим образом:
+    	 * ПРИМЕР: Для текстового поля формы <input type="text" value="+7(___)___-__-__" name="tel" id="tel">
+    	 * применять следующим образом:
     	 * tel.id = 'tel';
     	 * tel.init();
     	 */
@@ -20,6 +21,10 @@
             clean_tel: '',
             // Шаблон-формат, в который будет вставлен номер сотового телефона.
             template_tel: '+7(___)___-__-__',
+            // Счётчик кликов по форме ввода. Предназначен для вставки шаблона-формата при первом клике по форме.
+            count_click: 0,
+            // Счётчик возникновения события, когда позиция курсора становится равным 3.
+            count_pos_3: 0,
 
             /**
              * Метод запуска.
@@ -29,11 +34,25 @@
 				var input = document.getElementById(this.id);
 				$('#' + this.id).on('click', function(eventObj) {
 					// Событие - клик по форме.
+					if (tel.count_click == 0) {
+						// Вставляем в поле ввода мобильного телефона аттрибут value с шаблоном ввода мобильного телефона.
+            			$('#' + tel.id).val(tel.template_tel);
+            			tel.count_click++;
+            		}
 					tel.click(eventObj, input);
 				});
                 $('#' + this.id).on('keyup', function(eventObj) {
                 	// Событие - возврат клавиши из нажатого состояния.
 					tel.keyup(eventObj, input);
+				});
+				$('#' + this.id).on('focusout', function(eventObj) {
+					// Событие -потери фокуса на элементе формы.
+					var count_ = input.value.split('_').length - 1;
+					if (count_ == 10) {
+						// Элемент формы для ввода номера сотового телефона не заполнен.
+						input.value = '';
+						tel.count_click = 0;
+					}
 				});
             },
 
@@ -71,6 +90,10 @@
 						// Позиция курсора не может быть меньше 3.
 						if (posCursor < 3 || posCursor == undefined) this.setCursor(input, 3);
 						else this.setCursor(input, posCursor);
+					}
+					if (posCursor > 3) {
+						// Если позиция курсора в поле формы больше 3, обнуляем счётчик this.count_pos_3.
+						this.count_pos_3 = 0;
 					}
 				}
 			},
@@ -224,9 +247,17 @@
 						}
 					}
 					var new_clean_tel = '';
-					for (var i = 0; i < 10; i++) {
-						if (i != posClean_tel) new_clean_tel = new_clean_tel + this.clean_tel.charAt(i);
+					if (posCursor == 3) {
+						// Если курсор достиг позиции 3.
+						this.count_pos_3++;
 					}
+					else this.count_pos_3 = 0;
+					if (this.count_pos_3 <= 1) {
+						for (var i = 0; i < 10; i++) {
+							if (i != posClean_tel) new_clean_tel = new_clean_tel + this.clean_tel.charAt(i);
+						}
+					}
+					else new_clean_tel = this.clean_tel;
 					this.clean_tel = new_clean_tel;
 					this.insertInTemplate(input);
 					this.setCursor(input, posCursor);
