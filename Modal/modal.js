@@ -46,6 +46,8 @@
             	var h_modal_ = 0;
             	// Помогает различать клики в пределах или за границей модального окна.
             	var e = 1;
+                // Скорость появления модального окна.
+                var fade = 0;
 
             	/**
             	 * Методы устанавливающие свойства.
@@ -73,32 +75,32 @@
 				 * Открывает модальное окно.
 				 */
         	 	function open( eventObj ) {
-        	 		id_modal( eventObj );
-		    		body_.addClass( 'modalBody' );
-		    		modal_.before( '<div id="overlay" style="position:absolute;width:100%;overflow:hidden;z-index:99;height:' + h_win_ + 'px;"></div>' );
-		    		overlay();
-		    		modal_.height( h_win_ ).css( 'display', 'block' );
-		    		h_modal();
-		    		var f = formatModal();
-		    		if ( f == 'center' ) {
-		    			var margin = Math.floor(( h_win_ - h_modal_ ) / 2);
-		    			id_modal_div_.css( 'margin-top', margin );
-		    		}
-		    		else {
-		    			if ( f == 'indent' ) {
-		    				id_modal_div_.addClass( 'indent' );
-		    			}
-		    		}
+                    id_modal( eventObj );
+                    body_.addClass( 'modalBody' );
+                    modal_.before( '<div id="overlay" style="position:absolute;width:100%;overflow:hidden;z-index:99;height:' + h_win_ + 'px;"></div>' );
+                    overlay();
+                    if ( fade == 0 ) modal_.height( h_win_ ).css( 'display', 'block' );
+                    else modal_.height( h_win_ ).fadeIn( fade );
+                    h_modal();
+                    var f = formatModal();
+                    if ( f == 'center' ) {
+                        var margin = Math.floor(( h_win_ - h_modal_ ) / 2);
+                        id_modal_div_.css( 'margin-top', margin );
+                    }
+                    else {
+                        if ( f == 'indent' ) {
+                            id_modal_div_.addClass( 'indent' );
+                        }
+                    }
         	 	}
 
         	 	/**
 				 * Закрывает модальное окно.
 				 */
         	 	function close() {
-        	 		modal_.css( 'display', 'none' ).removeAttr( 'style' );
         	 		overlay_.remove();
-        	 		//modal_.removeAttr( 'style' );
         	 		body_.removeClass( 'modalBody' );
+                    modal_.css( 'display', 'none' ).removeAttr( 'style' );
         	 		id_modal_div_.removeAttr( 'style' ).removeClass( 'indent' );
         	 		reset();
         	 	}
@@ -140,7 +142,8 @@
 					/**
 					 * Описание событий.
 					 */
-				   	start: function() {
+				   	start: function( fade_ ) {
+                        fade = fade_;
 				   		// Клик по ссылке открытия модального окна.
 				   		$( 'a.openModal' ).on('click', function( eventObj ) {
 				   			if ( id_modal_ == '' ) open( eventObj );
@@ -165,8 +168,10 @@
         	 				e = 2;
         	 			});
 
-        	 			// Событие - изменение окна браузера.
+        	 			// Изменение окна браузера.
         	 			$( window ).resize(function() {
+                            var memory_fade = fade;
+                            fade = 0;
         	 				if ( id_modal_ == '' ) h_win();
         	 				else {
         	 					var i = id_modal_;
@@ -174,11 +179,13 @@
         	 					h_win();
         	 					$( 'a[href="#' + i + '"]' ).click();
         	 				}
+                            fade = memory_fade;
 						});
 				   	}
 
 			    };
 			};
+
 			return {
 
 				// ----------------------------
@@ -188,16 +195,17 @@
         	 	/**
         	 	 * Метод запуска (инициализации).
         	 	 */
-				init: function() {
+				init: function(fade = 0) {
 				    if ( !instance ) {
 				        instance = Singleton();
+				        instance.start(fade);
 				    }
 	    			return instance;
     			},
 			};
     	};
     	var modal = new Modal();
-    	modal.init().start();
+    	modal.init(600);
 
     });
 })(jQuery);
