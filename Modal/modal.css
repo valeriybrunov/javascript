@@ -1,7 +1,6 @@
-
-/*******************/
-/* МОДАЛЬНЫЕ ОКНА. */
-/*******************/
+/**************************/
+/*     МОДАЛЬНЫЕ ОКНА.    */
+/**************************/
 div.modal {
     display: none;
     position: absolute;
@@ -13,28 +12,34 @@ div.modal-obolochka {
     background-color: #FFF;/* Цвет всплывающего окна. */
     margin-left: 30%;/* Ширина окна задается отступами слева и справа. */
     margin-right: 30%;
+    border-bottom: 1px solid #F1F1F1;
+    box-shadow: 0 0 5px 2px;
     z-index: 101;
 }
 div.modal-header {
-	border-bottom: 1px solid green;
+	border-bottom: 1px solid #C8C8C8;
 }
 div.modal-header,
 div.modal-footer {
-	height: 28px;
-	font-size: 14px;
+	height: 50px;
+	font-size: 16px;
+    background-color: #F0F0F0;
+}
+div.modal-footer {
+    
 }
 div.toptextleft {
-	padding-left: 10px;
+	padding-left: 20px;
 }
 div.toptextright {
-	padding-right: 10px;
+	padding-right: 20px;
 }
 div.modal-content {
-	padding: 10px;
+	padding: 20px;
 	min-height: 100px;
 }
 div.modal-footer {
-	border-top: 1px solid green;
+	border-top: 1px solid #C8C8C8;
 }
 .indent {
     margin-top: 20px;
@@ -45,5 +50,5 @@ div.modal-footer {
 }
 #overlay {
     background-color: #000;
-    opacity: 0.5;
+    opacity: 0.4;
 }
