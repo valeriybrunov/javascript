@@ -1,0 +1,178 @@
+/**
+ * 
+ */
+
+/* RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+div, span {
+	position:relative;
+}
+
+/* Строка. */
+.row {
+	clear: both;
+}
+
+/* Ячейки. */
+.cell-1, .cell-2, .cell-3, .cell-4, .cell-5, .cell-6, .cell-7, .cell-8, .cell-9, .cell-10, .cell-11, .cell-12 {
+	float: left;
+}
+.cell-1 {
+	width: 8.3333%;
+}
+.cell-2 {
+	width: 16.6666%;
+}
+.cell-3 {
+	width: 24.9999%;
+}
+.cell-4 {
+	width: 33.3332%;
+}
+.cell-5 {
+	width: 41.6665%;
+}
+.cell-6 {
+	width: 50%;
+}
+.cell-7 {
+	width: 58.3331%;
+}
+.cell-8 {
+	width: 66.6664%;
+}
+.cell-9 {
+	width: 74.9997%;
+}
+.cell-10 {
+	width: 83.333%;
+}
+.cell-11 {
+	width: 91.6663%;
+}
+.cell-12 {
+	width: 100%;
+}
+
+/* Отступы на величину ячейки. */
+.pull-1 {
+	margin-left: 8.333333%;
+}
+.pull-2 {
+	margin-left: 16.6666%;
+}
+.pull-3 {
+	margin-left: 24.9999%;
+}
+.pull-4 {
+	margin-left: 33.3332%;
+}
+.pull-5 {
+	margin-left: 41.6665%;
+}
+.pull-6 {
+	margin-left: 50%;
+}
+.pull-7 {
+	margin-left: 58.3331%;
+}
+.pull-8 {
+	margin-left: 66.6664%;
+}
+.pull-9 {
+	margin-left: 74.9997%;
+}
+.pull-10 {
+	margin-left: 83.333%;
+}
+.pull-11 {
+	margin-left: 91.6663%;
+}
+
+/**
+ * Позиционирование ячеек.
+ * http://plnkr.co/edit/vP19NBGWSA9bnHbry1sJ
+ */
+.abs {
+    position: absolute;
+}
+.vertical {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.vertical-top {
+	display: table-cell;
+	vertical-align: top;
+}
+.vertical-middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+.vertical-bottom {
+	display: table-cell;
+	vertical-align: bottom;
+}
+.vertical-left {
+	float: left;
+}
+.vertical-right {
+	float: right;
+}
+
+
+
+/* Для ширины окна 850 px и более. */
+@media (min-width: 850px) {
+	.row {
+		color:red;
+	}
+}
+
+
+
+
+
+

@@ -1,62 +1,40 @@
-/* RESET */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
 
 /*******************/
 /* МОДАЛЬНЫЕ ОКНА. */
 /*******************/
-.modal {
+div.modal {
     display: none;
     position: absolute;
     width: 100%;
     overflow-y: scroll;
     z-index: 100;
 }
-.modal div {
+div.modal-obolochka {
     background-color: #FFF;/* Цвет всплывающего окна. */
-    margin-left: 30%;/* Ширина окна задается отступами слева и права. */
+    margin-left: 30%;/* Ширина окна задается отступами слева и справа. */
     margin-right: 30%;
     z-index: 101;
+}
+div.modal-header {
+	border-bottom: 1px solid green;
+}
+div.modal-header,
+div.modal-footer {
+	height: 28px;
+	font-size: 14px;
+}
+div.toptextleft {
+	padding-left: 10px;
+}
+div.toptextright {
+	padding-right: 10px;
+}
+div.modal-content {
+	padding: 10px;
+	min-height: 100px;
+}
+div.modal-footer {
+	border-top: 1px solid green;
 }
 .indent {
     margin-top: 20px;
@@ -69,4 +47,3 @@ table {
     background-color: #000;
     opacity: 0.5;
 }
-

@@ -11,6 +11,8 @@
     	 * Оболочка модального окна:
     	 *  <div id="modal-reg" class="modal"><div>Содержимое</div></div>
     	 * 2. Модальное окно должно идти сразу за тэгом <body>.
+    	 * 3. Ссылка закрывающая модальное окно:
+    	 *  <a href="#" class="closeModal">Закрыть</a>
     	 */
     	var Modal = function() {
 
@@ -65,7 +67,7 @@
             		overlay_ = $( '#overlay' );
             	}
             	function id_modal_div() {
-            		id_modal_div_ = $( '#' + id_modal_ + ' div' );
+            		id_modal_div_ = $( '#' + id_modal_ + ' .modal-obolochka' );
             	}
             	function h_modal() {
             		h_modal_ = id_modal_div_.height();
