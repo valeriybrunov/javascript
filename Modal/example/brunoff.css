@@ -1,3 +1,4 @@
+/* http://plnkr.co/edit/N1abQg9yrBOeyTEjGkhE?p=preview */
 /* RESET */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -805,6 +806,9 @@ div, span {
 	float: right;
 }
 
+/**
+ * Формы.
+ */
 
 
 /* Для ширины окна 850 px и более. */

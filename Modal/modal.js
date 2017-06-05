@@ -79,7 +79,7 @@
         	 	function open( eventObj ) {
                     id_modal( eventObj );
                     body_.addClass( 'modalBody' );
-                    modal_.before( '<div id="overlay" style="position:absolute;width:100%;overflow:hidden;z-index:99;height:' + h_win_ + 'px;"></div>' );
+                    modal_.before( '<div id="overlay" style="position:absolute;width:100%;overflow:hidden;z-index:2000;height:' + h_win_ + 'px;"></div>' );
                     overlay();
                     if ( fade == 0 ) modal_.height( h_win_ ).css( 'display', 'block' );
                     else modal_.height( h_win_ ).fadeIn( fade );
