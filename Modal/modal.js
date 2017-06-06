@@ -83,6 +83,12 @@
                     overlay();
                     if ( fade == 0 ) modal_.height( h_win_ ).css( 'display', 'block' );
                     else modal_.height( h_win_ ).fadeIn( fade );
+                    var h_win_2 = h_win_;
+                    h_win();
+                    if ( h_win_2 < h_win_ ) {
+						overlay_.height( h_win_ );
+						modal_.height( h_win_ );
+					}
                     h_modal();
                     var f = formatModal();
                     if ( f == 'center' ) {
