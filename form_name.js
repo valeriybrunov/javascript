@@ -7,8 +7,10 @@
 			// Приватные свойства и методы.
 			// -------------------------------
 
-            // Ищем элемент с id = name.
-            var name = $( '#name' );
+            var name, submit_id;
+            
+            // Указывает на потерю фокуса.
+            var focus = false;
 
             /**
              * Показывает ошибки.
@@ -37,12 +39,22 @@
 				// Публичные методы и свойства.
 				// -------------------------------
 
+                // id поля для ввода имени.
+                id: function(id_name) {
+                    name = $( '#' + id_name );
+                },
+				
+				// id кнопки после нажатия которой будет произведена проверка поля на ошибки.
+				submitId: function(id_submit) {
+                    submit_id = $( '#' + id_submit );
+                },
+
                 init: function() {
 
                     /**
                      * Событие - нажата клавиша вернулась в отжатое (нормальное) состояние.
                      */
-                    $( '#name' ).on('keyup', function( eventObj ) {
+                    name.on('keyup', function( eventObj ) {
                         var str = $( this ).val();
                         if ( str.length > 0 ) {
                             // Проверка на символы пунктуации.
@@ -57,6 +69,32 @@
                         }
                         else errorOff();
                     });
+                    
+                    /**
+                     * Событие - поле в фокусе.
+                     */
+                    name.on('focus', function( eventObj ) {
+						focus = true;
+					});
+					
+					/**
+                     * Событие - потеря фокуса.
+                     */
+                    name.on('focusout', function( eventObj ) {
+						if ( focus == true ) {
+							var str = $( this ).val();
+							if ( str.length == 0 ) setError( 'Поле обязательно для заполнения!' );
+						}
+					});
+
+                    /**
+                     * Событие - клик по кнопке.
+                     */
+                    submit_id.on('click', function( eventObj ) {
+                        if ( name.parent().next().hasClass( 'error' ) ) {
+                            submit_id.trigger( 'errorform' );
+                        }
+                    });
 
                 },
 
@@ -64,8 +102,9 @@
 		};
 
 		var Name = new Form_name();
+        Name.id( 'name' );
+        Name.submitId( 'sub' );
         Name.init();
-		
 
 	});
 })(jQuery);
