@@ -210,7 +210,9 @@
 					var new_number_str = str.replace( /[^0-9]/g, '' );
 					var count_number_str = new_number_str.length;
 					var delta = count_number - count_number_str;
-					if ( delta > 0 ) setError( 'Осталось ' + delta + ' цифр' );
+                    if ( delta == 1 ) setError( 'Осталась 1 цифра' );
+                    if ( delta >= 2 && delta <= 4 ) setError( 'Осталось ' + delta + ' цифры' );
+                    if ( delta >= 5 ) setError( 'Осталось ' + delta + ' цифр' );
 					if ( delta == 0 ) setConfirm( 'Все верно' );
 				});
                 id.on('focus', function( eventObj ) {
@@ -284,6 +286,12 @@
                     submit_id = $( '#' + id_submit );
                 },
 
+                // Очистка формы.
+                clear: function() {
+                    id.val('');
+                    errorOff();
+                },
+
             };
         };
 
@@ -293,6 +301,10 @@
         Telefon.symbolInsert( '_' );
         Telefon.submitId( 'sub' );
         Telefon.init();
+
+        $('a.closeModal').on('click', function(eventObj) {
+            Telefon.clear();
+        });
 
     });
 })(jQuery);

@@ -59,6 +59,7 @@
                     submit_id = $( '#' + id_submit );
                 },
 
+                // Инициализация.
                 init: function() {
 
                     /**
@@ -109,6 +110,12 @@
 
                 },
 
+                // Очистка формы.
+                clear: function() {
+                    name.val('');
+                    errorOff();
+                },
+
 			};
 		};
 
@@ -116,6 +123,10 @@
         Name.id( 'name' );
         Name.submitId( 'sub' );
         Name.init();
+
+        $('a.closeModal').on('click', function(eventObj) {
+            Name.clear();
+        });
 
 	});
 })(jQuery);
