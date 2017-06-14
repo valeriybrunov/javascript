@@ -1,5 +1,15 @@
 (function($) {
     $(document).ready(function() {
+
+        /**
+         * Проверяет форму для ввода имени пользователя на ошибки.
+         *
+         * Использовать:
+         *  var Name = new Form_name();
+         *  Name.id( 'name' );// id формы для ввода имени пользователя.
+         *  Name.submitId( 'sub' );// id кнопки при нажатие которой должен произойти переход (необязательное поле).
+         *  Name.init();// Инициализация.
+         */
 		
 		var Form_name = function() {
 
@@ -8,7 +18,7 @@
 			// -------------------------------
 
             var name, submit_id;
-            
+
             // Указывает на потерю фокуса.
             var focus = false;
 
@@ -40,12 +50,12 @@
 				// -------------------------------
 
                 // id поля для ввода имени.
-                id: function(id_name) {
+                id: function( id_name ) {
                     name = $( '#' + id_name );
                 },
 				
 				// id кнопки после нажатия которой будет произведена проверка поля на ошибки.
-				submitId: function(id_submit) {
+				submitId: function( id_submit ) {
                     submit_id = $( '#' + id_submit );
                 },
 
@@ -92,6 +102,7 @@
                      */
                     submit_id.on('click', function( eventObj ) {
                         if ( name.parent().next().hasClass( 'error' ) ) {
+                            eventObj.preventDefault();
                             submit_id.trigger( 'errorform' );
                         }
                     });

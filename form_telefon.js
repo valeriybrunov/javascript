@@ -4,7 +4,20 @@
         /**
          * Упрощает ввод в текстовое поле номера сотового телефона, путём вставки шаблона-подсказки для ввода.
          *
+         * Создаём объект:
+         * var Telefon = new Form_telefon();
+         * Telefon.id( 'tel' );
          * 
+         * Следующие св-ва можно опустить.
+         * Telefon.template( '(___)___-__-__' );
+         * Telefon.symbolInsert( '_' );
+         * Telefon.submitId( 'sub' );
+         * 
+         * Инициализация с выводом ошибок:
+         * Telefon.init();
+         * 
+         * Инициализация без указания ошибок.
+         * Telefon.initNotError();
          */
 
         var Form_telefon = function() {
@@ -13,14 +26,17 @@
 			// Приватные свойства и методы.
 			// -------------------------------
 
-            var id, input, start_pos, end_pos, form_value;
+            var id, input, start_pos, end_pos, form_value, count_number, submit_id;
 
             // Шаблон-формат, в который будет вставлен номер сотового телефона.
             var template_tel = '+7(___)___-__-__';
 
+            // Символ, который заменяется на цифру.
+            var symbol_insert = '_';
+
             // Начальная позиция в шаблоне для ввода телефонного номера.
             function startPos() {
-                start_pos = template_tel.indexOf( '_' );
+                start_pos = template_tel.indexOf( symbol_insert );
             }
 
             // Конечная позиция в шаблоне для ввода телефонного номера.
@@ -32,7 +48,7 @@
             // Работает непосредственно с полем ввода телефона.
             function nextPos() {
                 var form_val = id.val();
-                return form_val.indexOf( '_' );
+                return form_val.indexOf( symbol_insert );
             }
 
             /**
@@ -136,7 +152,7 @@
                             if ( eventObj.which == 55 ) var symbol = '7';
                             if ( eventObj.which == 56 ) var symbol = '8';
                             if ( eventObj.which == 57 ) var symbol = '9';
-                            form_value = form_value.replace( '_', symbol );
+                            form_value = form_value.replace( symbol_insert, symbol );
                             id.val( form_value );
                             setCursorPosition( input, next_pos + 1, next_pos + 1 );
                         }
@@ -150,7 +166,7 @@
                             }
                             var new_str = '';
                             for (var i = 0; i <= (end_pos - 1); i++) {
-                                if ( result == i ) new_str = new_str + '_';
+                                if ( result == i ) new_str = new_str + symbol_insert;
                                 else new_str = new_str + form_value.charAt(i);
                             }
 							id.val( new_str );
@@ -163,6 +179,61 @@
                     }
                 });
             }
+            
+            // Указывает на потерю фокуса.
+            var focus = false;
+            
+            // Показывает ошибки.
+            function setError( text ) {
+                id.parent().next().removeClass( 'confirm' ).addClass( 'error' ).text( text );
+            }
+
+            // Очишает ошибки и любые надписи.
+            function errorOff() {
+                id.parent().next().removeClass( 'error' ).replaceWith( '<li class="label">&nbsp;</li>' );
+            }
+            
+            // Показывает утверждение.
+            function setConfirm( text ) {
+                id.parent().next().removeClass( 'error' ).addClass( 'confirm' ).text( text );
+            }
+            
+            // Подсчитывает возможное кол-во цифр в шаблоне.
+            function countNumber() {
+                count_number = ( template_tel.split( symbol_insert ).length - 1 );
+			}
+            
+            // Список событий на корректность ввода.
+            function validate() {
+				id.on('keyup', function( eventObj ) {
+					var str = $( this ).val();
+					var new_number_str = str.replace( /[^0-9]/g, '' );
+					var count_number_str = new_number_str.length;
+					var delta = count_number - count_number_str;
+					if ( delta > 0 ) setError( 'Осталось ' + delta + ' цифр' );
+					if ( delta == 0 ) setConfirm( 'Все верно' );
+				});
+                id.on('focus', function( eventObj ) {
+                    focus = true;
+                });
+                id.on('focusout', function( eventObj ) {
+                    if ( focus == true ) {
+                        var str = $( this ).val();
+                        var new_number_str = str.replace( /[^0-9]/g, '' );
+                        var count_number_str = new_number_str.length;
+                        if ( count_number_str > 0 && count_number_str < count_number ) {
+                            setError( 'Номер не полный!' );
+                        }
+                        if ( count_number_str == 0 ) setError( 'Поле обязательно для заполнения!' );
+                    }
+                });
+                submit_id.on('click', function( eventObj ) {
+                    if ( id.parent().next().hasClass( 'error' ) ) {
+                        eventObj.preventDefault();
+                        submit_id.trigger( 'errorform' );
+                    }
+                });
+			}
 
             return {
 
@@ -170,8 +241,20 @@
 				// Публичные методы и свойства.
 				// -------------------------------
 
-                // Инициализация объекта.
-                init: function( id_form ) {
+                // Инициализация объекта с указанием ошибок при вводе.
+                init: function() {
+                    startPos();
+                    endPos();
+                    clickform();
+                    focusout();
+                    keypress();
+                    keyup();
+                    countNumber();
+                    validate();
+                },
+
+                // Инициализация объекта без указания ошибок.
+                initNotError: function() {
                     startPos();
                     endPos();
                     clickform();
@@ -191,12 +274,24 @@
                     input = document.getElementById( id_tel );
                 },
 
+                // Символ для замены на число.
+                symbolInsert: function( sym_insert ) {
+                    symbol_insert = sym_insert;
+                },
+
+                // id кнопки после нажатия которой будет произведена проверка поля на ошибки.
+				submitId: function( id_submit ) {
+                    submit_id = $( '#' + id_submit );
+                },
+
             };
         };
 
         var Telefon = new Form_telefon();
         Telefon.id( 'tel' );
         Telefon.template( '(___)___-__-__' );
+        Telefon.symbolInsert( '_' );
+        Telefon.submitId( 'sub' );
         Telefon.init();
 
     });
