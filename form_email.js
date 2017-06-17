@@ -170,17 +170,6 @@
 
 			};
 		};
-		
-		var Email = new Form_email();
-        Email.id( 'email' );
-        Email.clearId( 'email-clear' );
-        Email.submitId( 'sub' );
-        Email.init();
-
-        // При закрытие модального окна.
-        $( 'a.closeModal' ).on('click', function(eventObj) {
-            Email.clear();
-        });
 	
 	});
 })(jQuery);

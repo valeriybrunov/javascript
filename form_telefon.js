@@ -26,7 +26,7 @@
 			// Приватные свойства и методы.
 			// -------------------------------
 
-            var id, input, start_pos, end_pos, form_value, count_number, submit_id;
+            var id, input, start_pos, end_pos, form_value, count_number, submit_id, clear_id;
 
             // Шаблон-формат, в который будет вставлен номер сотового телефона.
             var template_tel = '+7(___)___-__-__';
@@ -237,6 +237,20 @@
                 });
 			}
 
+            // Очищает форму.
+            function clearform() {
+                id.val('');
+                errorOff();
+            }
+
+            // Событие - щелчок по объекту очистки формы.
+            function clearForm() {
+                clear_id.on('click', function( eventObj ) {
+                    eventObj.preventDefault();
+                    clearform();
+                });
+            }
+
             return {
 
 				// -------------------------------
@@ -253,6 +267,7 @@
                     keyup();
                     countNumber();
                     validate();
+                    clearForm();
                 },
 
                 // Инициализация объекта без указания ошибок.
@@ -288,23 +303,16 @@
 
                 // Очистка формы.
                 clear: function() {
-                    id.val('');
-                    errorOff();
+                    clearform();
+                },
+
+                // id объекта по щелчку на котором очищает форму.
+                clearId: function( id_clear ) {
+                    clear_id = $( '#' + id_clear );
                 },
 
             };
         };
-
-        var Telefon = new Form_telefon();
-        Telefon.id( 'tel' );
-        Telefon.template( '(___)___-__-__' );
-        Telefon.symbolInsert( '_' );
-        Telefon.submitId( 'sub' );
-        Telefon.init();
-
-        $('a.closeModal').on('click', function(eventObj) {
-            Telefon.clear();
-        });
 
     });
 })(jQuery);
