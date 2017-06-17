@@ -7,8 +7,16 @@
          * Использовать:
          *  var Name = new Form_name();
          *  Name.id( 'name' );// id формы для ввода имени пользователя.
-         *  Name.submitId( 'sub' );// id кнопки при нажатие которой должен произойти переход (необязательное поле).
+         *  Name.submitId( 'sub' );id кнопки для отправки формы.
          *  Name.init();// Инициализация.
+         *
+         * Мин. использование:
+         *  var Name = new Form_name();
+         *  Name.id( 'name' );
+         *  Name.init();
+         *
+         * Дополнительные возможности:
+         *  - очистка формы: Name.clear();
          */
 		
 		var Form_name = function() {
@@ -17,7 +25,7 @@
 			// Приватные свойства и методы.
 			// -------------------------------
 
-            var name, submit_id;
+            var name, submit_id, clear_id;
 
             // Указывает на потерю фокуса.
             var focus = false;
@@ -43,23 +51,44 @@
                 name.parent().next().removeClass( 'error' ).addClass( 'confirm' ).text( text );
             }
 
+            /**
+             * Очищает форму.
+             */
+            function clearform() {
+                name.val('');
+                errorOff();
+            }
+
 			return {
 
 				// -------------------------------
 				// Публичные методы и свойства.
 				// -------------------------------
 
-                // id поля для ввода имени.
+                /**
+                 * id поля для ввода имени.
+                 */
                 id: function( id_name ) {
                     name = $( '#' + id_name );
                 },
-				
-				// id кнопки после нажатия которой будет произведена проверка поля на ошибки.
+
+                /**
+				 * id кнопки после нажатия которой будет произведена проверка поля на ошибки.
+                 */
 				submitId: function( id_submit ) {
                     submit_id = $( '#' + id_submit );
                 },
 
-                // Инициализация.
+                /**
+                 * id объекта по щелчку на котором очищает форму.
+                 */
+                clearId: function( id_clear ) {
+                    clear_id = $( '#' + id_clear );
+                },
+
+                /**
+                 * Инициализация.
+                 */
                 init: function() {
 
                     /**
@@ -87,7 +116,7 @@
                     name.on('focus', function( eventObj ) {
 						focus = true;
 					});
-					
+
 					/**
                      * Событие - потеря фокуса.
                      */
@@ -99,7 +128,7 @@
 					});
 
                     /**
-                     * Событие - клик по кнопке.
+                     * Событие - щелчок по кнопке.
                      */
                     submit_id.on('click', function( eventObj ) {
                         if ( name.parent().next().hasClass( 'error' ) ) {
@@ -108,25 +137,30 @@
                         }
                     });
 
+                    /**
+                     * Событие - щелчок по объекту очистки формы.
+                     */
+					clear_id.on('click', function( eventObj ) {
+						eventObj.preventDefault();
+						clearform();
+					});
+
                 },
 
-                // Очистка формы.
+                /**
+                 * Очистка формы.
+                 */
                 clear: function() {
-                    name.val('');
-                    errorOff();
+                    clearform();
                 },
 
 			};
 		};
 
-		var Name = new Form_name();
-        Name.id( 'name' );
-        Name.submitId( 'sub' );
-        Name.init();
-
-        $('a.closeModal').on('click', function(eventObj) {
-            Name.clear();
-        });
-
 	});
 })(jQuery);
+
+
+
+
+
