@@ -216,9 +216,9 @@
 
             // Очишает ошибки и любые надписи.
             function errorOff() {
-                id.next().next().next().removeClass( 'error' ).replaceWith( '<li class="label">&nbsp;</li>' );
+                id.next().next().next().removeClass( 'error' ).replaceWith( '<label class="label_bottom" for="tel">&nbsp;</label>' );
             }
-            
+
             // Показывает утверждение.
             function setConfirm( text ) {
                 id.next().next().next().removeClass( 'error' ).addClass( 'confirm' ).text( text );
