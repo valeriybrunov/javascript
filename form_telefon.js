@@ -26,7 +26,7 @@
             // Приватные свойства и методы.
             // -------------------------------
 
-            var id, input, start_pos, end_pos, form_value, count_number, submit_id, clear_id;
+            var id, input, start_pos, end_pos, form_value, count_number, submit_id, clear_id, lab_bott;
 
             // Шаблон-формат, в который будет вставлен номер сотового телефона.
             var template_tel = '+7(___)___-__-__';
@@ -208,6 +208,11 @@
             
             // Указывает на потерю фокуса.
             var focus = false;
+
+            // Присваивает переменной lab_bott текст под формой.
+            function lb() {
+                lab_bott = id.next().next().next().text();
+            }
             
             // Показывает ошибки.
             function setError( text ) {
@@ -216,7 +221,7 @@
 
             // Очишает ошибки и любые надписи.
             function errorOff() {
-                id.next().next().next().removeClass( 'error' ).replaceWith( '<label class="label_bottom" for="tel">&nbsp;</label>' );
+                id.next().next().next().removeClass( 'error' ).text( lab_bott );
             }
 
             // Показывает утверждение.
@@ -294,6 +299,7 @@
                     startPos();
                     endPos();
                     addAttr();
+                    lb();
                     clickform();
                     focusout();
                     keydown();
@@ -308,6 +314,7 @@
                     startPos();
                     endPos();
                     addAttr();
+                    lb();
                     clickform();
                     focusout();
                     keydown();
