@@ -7,18 +7,25 @@
 			// Приватные свойства и методы.
 			// -------------------------------
 
-            var class_, text, my_template, x = [], y = [], top, left;
+            var class_, text, my_template, x = [], y = [], top, left, mypopover;
 
             var body = $( 'body' );
 
             // Указывает с какой стороны должен появится поповер относительно объекта.
-            var point = 2;
+            var point = 1;
+
+            /**
+             * Объект поповер.
+             */
+            function updatePopover() {
+                mypopover = $( '#popover' );
+            }
 
             /**
              * Устанавливаем шаблон поповера.
              */
             function template() {
-                my_template = '<div id="popover" style="position:absolute;width:100px;height:30px;top:' + top + 'px;left:' + left + 'px;z-index:3000;">' + text + '</div>';
+                my_template = '<span id="popover" style="position:absolute;top:' + top + 'px;left:' + left + 'px;z-index:3000;opacity:0.01;"><div class="popoverText">' + text + '</div><div class="triangle"></div></span>';
             }
 
             /**
@@ -50,6 +57,24 @@
             }
 
             /**
+             * Вводит поправку к переменным top и left в зависимости от ширины и высоты поповера.
+             */
+            function amendment() {
+                updatePopover();
+                var h = mypopover.height();
+                var w = mypopover.width();
+                if ( point == 1 ) {
+                    mypopover.remove();
+                    top = top - h;
+                    template();
+                    body.append( my_template );
+                    updatePopover();
+                    mypopover.css( 'opacity', '1' );
+                    
+                }
+            }
+
+            /**
              * Установка двух событий.
              */
              function eventPopover() {
@@ -71,13 +96,14 @@
                 left = x[point];
                 template();
                 body.append( my_template );
+                amendment();
             }
 
             /**
              * Скрывает поповер.
              */
             function displayOff( objectPopover ) {
-                $( '#popover' ).remove();
+                mypopover.remove();
             }
 
             return {
