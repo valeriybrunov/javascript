@@ -221,7 +221,7 @@
 
             // Очишает ошибки и любые надписи.
             function errorOff() {
-                id.next().next().next().removeClass( 'error' ).text( lab_bott );
+                id.next().next().next().removeClass( 'error' ).removeClass( 'confirm' ).text( lab_bott );
             }
 
             // Показывает утверждение.
