@@ -1,0 +1,65 @@
+/**************************/
+/*     МОДАЛЬНЫЕ ОКНА.    */
+/**************************/
+
+.modalBody { overflow: hidden; }
+#overlay {
+    background-color: #000;
+    opacity: 0.82;
+}
+
+div.modal {
+    display: none;
+    position: fixed;
+    overflow-y: scroll;
+    z-index: 2001;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+div.modal-setting {
+    background-color: #FFF;
+    border-bottom: 1px solid #F1F1F1;
+    box-shadow: 0 0 5px 2px;
+    z-index: 2002;
+    width: 500px;
+}
+div.modal-obolochka { margin: 20px auto; }
+div.modal-obolochka-2 {
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+div.modal-header {
+	border-bottom: 1px solid #C8C8C8;
+}
+div.modal-header,
+div.modal-footer {
+	height: 50px;
+	font-size: 16px;
+    background-color: #F0F0F0;
+}
+div.modal-footer {
+    
+}
+div.toptextleft {
+	padding-left: 20px;
+}
+div.toptextright {
+	padding-right: 20px;
+}
+div.modal-content {
+	padding: 20px;
+	min-height: 100px;
+}
+div.modal-footer {
+	border-top: 1px solid #C8C8C8;
+}
+.indent {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

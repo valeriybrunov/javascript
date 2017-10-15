@@ -1,0 +1,1220 @@
+/* RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Шрифты */
+@font-face {
+    font-family: 'Ubuntu Regular';
+    src: url('../font/ubuntu.ttf');
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../font/glyphicons-halflings-regular.eot');
+  src: url('../font/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../font/glyphicons-halflings-regular.woff') format('woff'), url('../font/glyphicons-halflings-regular.ttf') format('truetype'), url('../font/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-asterisk:before {
+  content: "\2a";
+}
+.glyphicon-plus:before {
+  content: "\2b";
+}
+.glyphicon-euro:before,
+.glyphicon-eur:before {
+  content: "\20ac";
+}
+.glyphicon-minus:before {
+  content: "\2212";
+}
+.glyphicon-cloud:before {
+  content: "\2601";
+}
+.glyphicon-envelope:before {
+  content: "\2709";
+}
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+.glyphicon-glass:before {
+  content: "\e001";
+}
+.glyphicon-music:before {
+  content: "\e002";
+}
+.glyphicon-search:before {
+  content: "\e003";
+}
+.glyphicon-heart:before {
+  content: "\e005";
+}
+.glyphicon-star:before {
+  content: "\e006";
+}
+.glyphicon-star-empty:before {
+  content: "\e007";
+}
+.glyphicon-user:before {
+  content: "\e008";
+}
+.glyphicon-film:before {
+  content: "\e009";
+}
+.glyphicon-th-large:before {
+  content: "\e010";
+}
+.glyphicon-th:before {
+  content: "\e011";
+}
+.glyphicon-th-list:before {
+  content: "\e012";
+}
+.glyphicon-ok:before {
+  content: "\e013";
+}
+.glyphicon-remove:before {
+  content: "\e014";
+}
+.glyphicon-zoom-in:before {
+  content: "\e015";
+}
+.glyphicon-zoom-out:before {
+  content: "\e016";
+}
+.glyphicon-off:before {
+  content: "\e017";
+}
+.glyphicon-signal:before {
+  content: "\e018";
+}
+.glyphicon-cog:before {
+  content: "\e019";
+}
+.glyphicon-trash:before {
+  content: "\e020";
+}
+.glyphicon-home:before {
+  content: "\e021";
+}
+.glyphicon-file:before {
+  content: "\e022";
+}
+.glyphicon-time:before {
+  content: "\e023";
+}
+.glyphicon-road:before {
+  content: "\e024";
+}
+.glyphicon-download-alt:before {
+  content: "\e025";
+}
+.glyphicon-download:before {
+  content: "\e026";
+}
+.glyphicon-upload:before {
+  content: "\e027";
+}
+.glyphicon-inbox:before {
+  content: "\e028";
+}
+.glyphicon-play-circle:before {
+  content: "\e029";
+}
+.glyphicon-repeat:before {
+  content: "\e030";
+}
+.glyphicon-refresh:before {
+  content: "\e031";
+}
+.glyphicon-list-alt:before {
+  content: "\e032";
+}
+.glyphicon-lock:before {
+  content: "\e033";
+}
+.glyphicon-flag:before {
+  content: "\e034";
+}
+.glyphicon-headphones:before {
+  content: "\e035";
+}
+.glyphicon-volume-off:before {
+  content: "\e036";
+}
+.glyphicon-volume-down:before {
+  content: "\e037";
+}
+.glyphicon-volume-up:before {
+  content: "\e038";
+}
+.glyphicon-qrcode:before {
+  content: "\e039";
+}
+.glyphicon-barcode:before {
+  content: "\e040";
+}
+.glyphicon-tag:before {
+  content: "\e041";
+}
+.glyphicon-tags:before {
+  content: "\e042";
+}
+.glyphicon-book:before {
+  content: "\e043";
+}
+.glyphicon-bookmark:before {
+  content: "\e044";
+}
+.glyphicon-print:before {
+  content: "\e045";
+}
+.glyphicon-camera:before {
+  content: "\e046";
+}
+.glyphicon-font:before {
+  content: "\e047";
+}
+.glyphicon-bold:before {
+  content: "\e048";
+}
+.glyphicon-italic:before {
+  content: "\e049";
+}
+.glyphicon-text-height:before {
+  content: "\e050";
+}
+.glyphicon-text-width:before {
+  content: "\e051";
+}
+.glyphicon-align-left:before {
+  content: "\e052";
+}
+.glyphicon-align-center:before {
+  content: "\e053";
+}
+.glyphicon-align-right:before {
+  content: "\e054";
+}
+.glyphicon-align-justify:before {
+  content: "\e055";
+}
+.glyphicon-list:before {
+  content: "\e056";
+}
+.glyphicon-indent-left:before {
+  content: "\e057";
+}
+.glyphicon-indent-right:before {
+  content: "\e058";
+}
+.glyphicon-facetime-video:before {
+  content: "\e059";
+}
+.glyphicon-picture:before {
+  content: "\e060";
+}
+.glyphicon-map-marker:before {
+  content: "\e062";
+}
+.glyphicon-adjust:before {
+  content: "\e063";
+}
+.glyphicon-tint:before {
+  content: "\e064";
+}
+.glyphicon-edit:before {
+  content: "\e065";
+}
+.glyphicon-share:before {
+  content: "\e066";
+}
+.glyphicon-check:before {
+  content: "\e067";
+}
+.glyphicon-move:before {
+  content: "\e068";
+}
+.glyphicon-step-backward:before {
+  content: "\e069";
+}
+.glyphicon-fast-backward:before {
+  content: "\e070";
+}
+.glyphicon-backward:before {
+  content: "\e071";
+}
+.glyphicon-play:before {
+  content: "\e072";
+}
+.glyphicon-pause:before {
+  content: "\e073";
+}
+.glyphicon-stop:before {
+  content: "\e074";
+}
+.glyphicon-forward:before {
+  content: "\e075";
+}
+.glyphicon-fast-forward:before {
+  content: "\e076";
+}
+.glyphicon-step-forward:before {
+  content: "\e077";
+}
+.glyphicon-eject:before {
+  content: "\e078";
+}
+.glyphicon-chevron-left:before {
+  content: "\e079";
+}
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+.glyphicon-plus-sign:before {
+  content: "\e081";
+}
+.glyphicon-minus-sign:before {
+  content: "\e082";
+}
+.glyphicon-remove-sign:before {
+  content: "\e083";
+}
+.glyphicon-ok-sign:before {
+  content: "\e084";
+}
+.glyphicon-question-sign:before {
+  content: "\e085";
+}
+.glyphicon-info-sign:before {
+  content: "\e086";
+}
+.glyphicon-screenshot:before {
+  content: "\e087";
+}
+.glyphicon-remove-circle:before {
+  content: "\e088";
+}
+.glyphicon-ok-circle:before {
+  content: "\e089";
+}
+.glyphicon-ban-circle:before {
+  content: "\e090";
+}
+.glyphicon-arrow-left:before {
+  content: "\e091";
+}
+.glyphicon-arrow-right:before {
+  content: "\e092";
+}
+.glyphicon-arrow-up:before {
+  content: "\e093";
+}
+.glyphicon-arrow-down:before {
+  content: "\e094";
+}
+.glyphicon-share-alt:before {
+  content: "\e095";
+}
+.glyphicon-resize-full:before {
+  content: "\e096";
+}
+.glyphicon-resize-small:before {
+  content: "\e097";
+}
+.glyphicon-exclamation-sign:before {
+  content: "\e101";
+}
+.glyphicon-gift:before {
+  content: "\e102";
+}
+.glyphicon-leaf:before {
+  content: "\e103";
+}
+.glyphicon-fire:before {
+  content: "\e104";
+}
+.glyphicon-eye-open:before {
+  content: "\e105";
+}
+.glyphicon-eye-close:before {
+  content: "\e106";
+}
+.glyphicon-warning-sign:before {
+  content: "\e107";
+}
+.glyphicon-plane:before {
+  content: "\e108";
+}
+.glyphicon-calendar:before {
+  content: "\e109";
+}
+.glyphicon-random:before {
+  content: "\e110";
+}
+.glyphicon-comment:before {
+  content: "\e111";
+}
+.glyphicon-magnet:before {
+  content: "\e112";
+}
+.glyphicon-chevron-up:before {
+  content: "\e113";
+}
+.glyphicon-chevron-down:before {
+  content: "\e114";
+}
+.glyphicon-retweet:before {
+  content: "\e115";
+}
+.glyphicon-shopping-cart:before {
+  content: "\e116";
+}
+.glyphicon-folder-close:before {
+  content: "\e117";
+}
+.glyphicon-folder-open:before {
+  content: "\e118";
+}
+.glyphicon-resize-vertical:before {
+  content: "\e119";
+}
+.glyphicon-resize-horizontal:before {
+  content: "\e120";
+}
+.glyphicon-hdd:before {
+  content: "\e121";
+}
+.glyphicon-bullhorn:before {
+  content: "\e122";
+}
+.glyphicon-bell:before {
+  content: "\e123";
+}
+.glyphicon-certificate:before {
+  content: "\e124";
+}
+.glyphicon-thumbs-up:before {
+  content: "\e125";
+}
+.glyphicon-thumbs-down:before {
+  content: "\e126";
+}
+.glyphicon-hand-right:before {
+  content: "\e127";
+}
+.glyphicon-hand-left:before {
+  content: "\e128";
+}
+.glyphicon-hand-up:before {
+  content: "\e129";
+}
+.glyphicon-hand-down:before {
+  content: "\e130";
+}
+.glyphicon-circle-arrow-right:before {
+  content: "\e131";
+}
+.glyphicon-circle-arrow-left:before {
+  content: "\e132";
+}
+.glyphicon-circle-arrow-up:before {
+  content: "\e133";
+}
+.glyphicon-circle-arrow-down:before {
+  content: "\e134";
+}
+.glyphicon-globe:before {
+  content: "\e135";
+}
+.glyphicon-wrench:before {
+  content: "\e136";
+}
+.glyphicon-tasks:before {
+  content: "\e137";
+}
+.glyphicon-filter:before {
+  content: "\e138";
+}
+.glyphicon-briefcase:before {
+  content: "\e139";
+}
+.glyphicon-fullscreen:before {
+  content: "\e140";
+}
+.glyphicon-dashboard:before {
+  content: "\e141";
+}
+.glyphicon-paperclip:before {
+  content: "\e142";
+}
+.glyphicon-heart-empty:before {
+  content: "\e143";
+}
+.glyphicon-link:before {
+  content: "\e144";
+}
+.glyphicon-phone:before {
+  content: "\e145";
+}
+.glyphicon-pushpin:before {
+  content: "\e146";
+}
+.glyphicon-usd:before {
+  content: "\e148";
+}
+.glyphicon-gbp:before {
+  content: "\e149";
+}
+.glyphicon-sort:before {
+  content: "\e150";
+}
+.glyphicon-sort-by-alphabet:before {
+  content: "\e151";
+}
+.glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152";
+}
+.glyphicon-sort-by-order:before {
+  content: "\e153";
+}
+.glyphicon-sort-by-order-alt:before {
+  content: "\e154";
+}
+.glyphicon-sort-by-attributes:before {
+  content: "\e155";
+}
+.glyphicon-sort-by-attributes-alt:before {
+  content: "\e156";
+}
+.glyphicon-unchecked:before {
+  content: "\e157";
+}
+.glyphicon-expand:before {
+  content: "\e158";
+}
+.glyphicon-collapse-down:before {
+  content: "\e159";
+}
+.glyphicon-collapse-up:before {
+  content: "\e160";
+}
+.glyphicon-log-in:before {
+  content: "\e161";
+}
+.glyphicon-flash:before {
+  content: "\e162";
+}
+.glyphicon-log-out:before {
+  content: "\e163";
+}
+.glyphicon-new-window:before {
+  content: "\e164";
+}
+.glyphicon-record:before {
+  content: "\e165";
+}
+.glyphicon-save:before {
+  content: "\e166";
+}
+.glyphicon-open:before {
+  content: "\e167";
+}
+.glyphicon-saved:before {
+  content: "\e168";
+}
+.glyphicon-import:before {
+  content: "\e169";
+}
+.glyphicon-export:before {
+  content: "\e170";
+}
+.glyphicon-send:before {
+  content: "\e171";
+}
+.glyphicon-floppy-disk:before {
+  content: "\e172";
+}
+.glyphicon-floppy-saved:before {
+  content: "\e173";
+}
+.glyphicon-floppy-remove:before {
+  content: "\e174";
+}
+.glyphicon-floppy-save:before {
+  content: "\e175";
+}
+.glyphicon-floppy-open:before {
+  content: "\e176";
+}
+.glyphicon-credit-card:before {
+  content: "\e177";
+}
+.glyphicon-transfer:before {
+  content: "\e178";
+}
+.glyphicon-cutlery:before {
+  content: "\e179";
+}
+.glyphicon-header:before {
+  content: "\e180";
+}
+.glyphicon-compressed:before {
+  content: "\e181";
+}
+.glyphicon-earphone:before {
+  content: "\e182";
+}
+.glyphicon-phone-alt:before {
+  content: "\e183";
+}
+.glyphicon-tower:before {
+  content: "\e184";
+}
+.glyphicon-stats:before {
+  content: "\e185";
+}
+.glyphicon-sd-video:before {
+  content: "\e186";
+}
+.glyphicon-hd-video:before {
+  content: "\e187";
+}
+.glyphicon-subtitles:before {
+  content: "\e188";
+}
+.glyphicon-sound-stereo:before {
+  content: "\e189";
+}
+.glyphicon-sound-dolby:before {
+  content: "\e190";
+}
+.glyphicon-sound-5-1:before {
+  content: "\e191";
+}
+.glyphicon-sound-6-1:before {
+  content: "\e192";
+}
+.glyphicon-sound-7-1:before {
+  content: "\e193";
+}
+.glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+.glyphicon-registration-mark:before {
+  content: "\e195";
+}
+.glyphicon-cloud-download:before {
+  content: "\e197";
+}
+.glyphicon-cloud-upload:before {
+  content: "\e198";
+}
+.glyphicon-tree-conifer:before {
+  content: "\e199";
+}
+.glyphicon-tree-deciduous:before {
+  content: "\e200";
+}
+html {
+  font-size: 16px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: 'Ubuntu Regular', Arial, Helvetica, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: #333;
+  background-color: #FFF;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 12px;
+}
+.bold-text {
+  font-weight: bold;
+}
+.normal-text {
+  font-weight: normal;
+}
+
+div, span {
+	position:relative;
+}
+
+/* Строка. */
+.row {
+	clear: both;
+}
+
+/* Ячейки. */
+.cell-1, .cell-2, .cell-3, .cell-4, .cell-5, .cell-6, .cell-7, .cell-8, .cell-9, .cell-10, .cell-11, .cell-12 {
+	float: left;
+    box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+}
+.cell-1 {
+	width: 8.3333%;
+}
+.cell-2 {
+	width: 16.6666%;
+}
+.cell-3 {
+	width: 24.9999%;
+}
+.cell-4 {
+	width: 33.3332%;
+}
+.cell-5 {
+	width: 41.6665%;
+}
+.cell-6 {
+	width: 50%;
+}
+.cell-7 {
+	width: 58.3331%;
+}
+.cell-8 {
+	width: 66.6664%;
+}
+.cell-9 {
+	width: 74.9997%;
+}
+.cell-10 {
+	width: 83.333%;
+}
+.cell-11 {
+	width: 91.6663%;
+}
+.cell-12 {
+	width: 100%;
+}
+
+/* Отступы на величину ячейки. */
+.pull-1 {
+	margin-left: 8.333333%;
+}
+.pull-2 {
+	margin-left: 16.6666%;
+}
+.pull-3 {
+	margin-left: 24.9999%;
+}
+.pull-4 {
+	margin-left: 33.3332%;
+}
+.pull-5 {
+	margin-left: 41.6665%;
+}
+.pull-6 {
+	margin-left: 50%;
+}
+.pull-7 {
+	margin-left: 58.3331%;
+}
+.pull-8 {
+	margin-left: 66.6664%;
+}
+.pull-9 {
+	margin-left: 74.9997%;
+}
+.pull-10 {
+	margin-left: 83.333%;
+}
+.pull-11 {
+	margin-left: 91.6663%;
+}
+
+.hide { display: none; }
+
+/***************************************************************/
+/*                  Вёрстка внутри слоя.                       */
+/***************************************************************/
+
+/**
+ * Позиционирование ячеек. Размещение объектов внутри ячейки.
+ * Внешняя ячейка (родитель) должна явно быть указана высота.
+ * http://plnkr.co/edit/vP19NBGWSA9bnHbry1sJ
+ */
+.abs {
+    position: absolute;
+}
+.vertical {
+	display: table;
+	width: 100% !important;
+	height: 100% !important;
+}
+.vertical-top {
+	display: table-cell;
+	vertical-align: top;
+}
+.vertical-middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+.vertical-bottom {
+	display: table-cell;
+	vertical-align: bottom;
+}
+.vertical-left {
+	float: left;
+}
+.vertical-right {
+	float: right;
+}
+
+/* Позиционирование внутри ячеек. Размещение однострочных объектов внутри ячеек по вертикали. */
+/* Внешняя ячейка должна быть явно указана position: relative; */
+/* http://plnkr.co/edit/ED3xA71eXNEM0HcM7vkX?p=preview */
+.mid-right {
+    top: 50%;
+    margin-top: -0.625em;
+    right: 0px;
+}
+.mid-left {
+    top: 50%;
+    margin-top: -0.625em;
+    left: 0px;
+}
+/* Устанавливает блок строго по центру. */
+.block-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/**
+ * Позиционирование блочных элементов в строке.
+ * Применяется, когда надо выровнять блочные элементы разной высоты.
+ */
+li.inline-block-top,
+div.inline-block-top,
+span.inline-block-top,
+img.inline-block-top {
+  display: inline-block;
+  vertical-align: top;
+}
+li.inline-block-middle,
+div.inline-block-middle,
+span.inline-block-middle,
+img.inline-block-middle,
+select.inline-block-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+li.inline-block-bottom,
+div.inline-block-bottom,
+span.inline-block-bottom,
+img.inline-block-bottom {
+  display: inline-block;
+  vertical-align: bottom;
+}
+li.inline-block-bottom,
+li.inline-block-middle,
+li.inline-block-top { list-style: none; }
+
+/* Верстка по типу таблицы. */
+.table    { display: table; }
+.tr       { display: table-row; }
+.thead    { display: table-header-group; }
+.tbody    { display: table-row-group; }
+.tfoot    { display: table-footer-group; }
+.col      { display: table-column; }
+.colgroup { display: table-column-group; }
+.td, .th  { display: table-cell; }
+.caption  { display: table-caption; }
+
+/***************************************************************/
+/*                             Ссылки.                         */
+/***************************************************************/
+
+:active,
+:visited,
+:link,
+:hover,
+:focus {
+    outline: none;
+    outline-offset: none;
+    text-decoration: none;
+}
+a:active,
+a:visited,
+a:link {
+    color: #1E90FF;
+}
+a:hover { color: #004BFF; }
+
+/***************************************************************/
+/*                             Формы.                          */
+/***************************************************************/
+
+input,
+div.select-wrap {
+    height: 32px;
+    border: 1px solid #BFBFBF;
+    border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+    box-shadow: inset 0px 0px 1px 0px #A1FF3A;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    overflow: hidden;
+    box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    color: #606060;
+}
+
+input {
+  width: 100%;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+div.form-control { margin-bottom: 20px; }
+span.del-text { top: 0px; }
+
+/* Радио-кнопки. */
+label.radio-form {
+  width: 28px;
+  height: 18px;
+  display: block;
+  background-image: url(data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAkCAYAAACE7WrnAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAJpJREFUSIntlOEKgCAMhG/Re6tPfv0Kank2xSCog/64eX1sc0aSmKBVBUop1fOUUsxoN1AXZJwH5ZwZlc+FCvSaLapG3Rql8VTTiH6jgN45RyNUPtfI8xoZfbQXI3/BS/1AGvVqWrH/DXlvJmsEAGbm6XWyogFQ/RRVtf2eJBJ73z561qjVHRlrzRGCHbudo+bcKCJFpfShDbkB9ODdw9vRqucAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  float: left;
+}
+input[type="radio"]:checked + label {
+  background-position: 0 -18px;
+}
+input[type="radio"] { display: none; }
+
+
+
+/* Поле в фокусе. */
+input:focus,
+input:hover,
+div.select-wrap:hover,
+div.select-wrap:focus {
+  outline: 0;
+  outline-offset: 0;
+  border: 1px solid green;
+  box-shadow: 0 0 1px 1px rgba(122,122,122,0.4);
+  color: black;
+}
+select:hover,
+select:focus {
+    color: black;
+}
+
+/* Текст с выделением внутри формы. */
+input[type="text"].figures-form:disabled {
+  width: 18px;
+  border: none;
+  border-right: 1px solid #BFBFBF;
+  border-radius: 3px 0 0 3px;
+  background-color: #DCDCDC;
+  color: #000;
+  margin-right: -40px;
+  z-index: 100;
+}
+input[type="text"].figures-form:hover {
+  box-shadow: none;
+}
+input[type="text"].figures-text-form {
+  padding-left: 38px;
+}
+
+/* Выпадающие списки. */
+select {
+    border: 0;
+    appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    border-radius: 0;
+    background: transparent;
+    line-height: 1;
+    font-size: 16px;
+    color: #606060;
+    height: 100%;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 22px;/* Равен ширине div.select-form */
+    padding: 4px 0px 4px 5px;
+}
+div.select-wrap div.select-form {
+    width: 22px;/* Равен ширине select */
+    padding-left: 4px;
+    padding-right: 0px;
+    height: 100%;
+    border: 0px;
+    top: 0;
+    right: 0;
+    background-color: #E6E6FA;
+    border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+}
+option { padding-left: 6px; }
+div.select-wrap div.select-form span { margin-top: 6px; }
+
+/* Ошибки и утверждения. */
+label.label_bottom { color: #4D4D4D; }
+label.confirm { color: #008000; }
+label.error { color: #FF0000; }
+div.error { color: red; }
+
+/* Чекбоксы. */
+label.checkbox-form {
+    width: 26px;
+    height: 16px;
+    display: block;
+    background-image: url(data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAgCAYAAAAffCjxAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAmVJREFUSImtlc9LVFEUxz/3vRlJiaFczaaF46Rj46JGgygNAgliIFpFSVE7oU3SQvoDBBci9B+0cRMhQxGau5qpIZRHEMwisEeOCK/NkBpq5nu3xfie77cjeOHOnPfOvZ/7PeeeOSOklJITGAnbKJVKVCoVjsPN5XKMjY15QZqmkUqlyGazLUEMw6BWqwUVAaTTaYrFovMspUQIEQqqVqvU63XnWYk71Ya0Em4syA88NshWIKX0TL86t53AN9x58Svx58xtBxTFhRHnC1Xk32wriUt6qKKok+N8AUXuTWEK3b5YUFRoUdAASAiBYRjMz89HLnYPwzDCQYVCgUqlgqZpLYEA8vm8Y4uTaiMt/URaGU5od969ZmH9J63KSwjB076LTA2PeBW9XdPZsyz+BaYZ8s5ixzSZ1b87YAcUrSRYM6dUFQDLld6jc+S7i4eZXl5dv0Uq2eZ5fzTIVcX3us4zPTjEr91t9iwzAnRwsmpvtJUcfD/qzjEzOMzc6grjS2V2zSiQEKTbO3h5bYSu0ymc3AjB/a4epgpXeb++yrPlT2zv7weEe0LrUBP0pM5QulHkwtlOAB539/Hi8jBzqz948uUDf30hhYL0rQ1Gy4tYUjI7dJPn/QNMXrpCqa4zoX1uQiSE3bE32UKg/9nk7scF9iyTif4B3qzpjC+V2THtcMILxddGmotWNn8zWl5kNNPLTO0ru5YZCYgAHa7XtzaY/LbcvDXnJqNBTmjC/hTCW8xOHQV9Sti/yO1zGdoUhaSikFRUkqp6YPtn09euqjzI9B6e12g0nJbk7tP+nh3l6+xslsl/wicUuuW4+h4AAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+}
+input[type="checkbox"]:checked + label {
+    background-position: 0 -16px;
+}
+input[type="checkbox"] {
+    display:none;
+}
+
+/* Кнопки */
+input[type="button"],
+input[type="submit"] {
+  color: #000;
+  background: rgb(212,75,56);
+  padding: 5px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid green;
+  text-align: center;
+  width: auto;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover { background: rgb(232,95,76); }
+input[type="button"],
+input[type="submit"] { background: rgb(152,15,0); }
+
+/* Прелоадеры. */
+@-ms-keyframes rotation {/* Правое вращение. */
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes rotation {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes rotation {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-ms-keyframes rotation-left {/* Левое вращение. */
+  from { -ms-transform: rotate(360deg); }
+  to { -ms-transform: rotate(0deg); }
+}
+@-moz-keyframes rotation-left {
+  from { -moz-transform: rotate(360deg); }
+  to { -moz-transform: rotate(0deg); }
+}
+@-webkit-keyframes rotation-left {
+  from { -webkit-transform: rotate(360deg); }
+  to { -webkit-transform: rotate(0deg); }
+}
+@keyframes rotation-left {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+div.preloader-animation {
+  -webkit-animation-name: rotation;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotation;
+  -moz-animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: rotation;
+  -ms-animation-duration: 1s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: rotation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+div.preloader-animation-left {
+  -webkit-animation-name: rotation-left;
+  -moz-animation-name: rotation-left;
+  -ms-animation-name: rotation-left;
+  animation-name: rotation-left;
+}
+div.shell-preloader-100 {
+  width: 100px;
+  height: 100px;
+}
+div.shell-preloader-100 .oblast-preloader {
+    width: 50px;/* В два раза меньше .shell-preloader */
+    height: 50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+div.shell-preloader-100 .circle-1-preloader {
+  border-left: 3px solid green;
+  border-top: 3px solid green;
+  border-radius: 50px 0px 0px 0px;
+}
+div.shell-preloader-100 .circle-2-preloader {
+  border-right: 3px solid green;
+  border-top: 3px solid green;
+  border-radius: 0px 50px 0px 0px;
+}
+div.shell-preloader-100 .circle-3-preloader {
+  border-left: 3px solid green;
+  border-bottom: 3px solid green;
+  border-radius: 0px 0px 0px 50px;
+}
+div.shell-preloader-100 .circle-4-preloader {
+  border-right: 3px solid green;
+  border-bottom: 3px solid green;
+  border-radius: 0px 0px 50px 0px;
+}
+div.shell-preloader-100 .cut-1 {
+  clip: rect(0px, 40px, 50px, 0px);
+  clip: rect(0px 40px 50px 0px);/* IE4 to IE7 */
+}
+div.shell-preloader-100 .cut-2 {
+  clip: rect(0px, 100px, 50px, 60px);
+  clip: rect(0px 100px 50px 60px);/* IE4 to IE7 */
+}
+div.shell-preloader-50 {
+  width: 50px;
+  height: 50px;
+}
+div.shell-preloader-50 .oblast-preloader {
+  width: 25px;/* В два раза меньше .shell-preloader */
+  height: 25px;
+  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;;
+}
+div.shell-preloader-50 .circle-1-preloader {
+  border-left: 3px solid green;
+  border-top: 3px solid green;
+  border-radius: 25px 0px 0px 0px;
+}
+div.shell-preloader-50 .circle-2-preloader {
+  border-right: 3px solid green;
+  border-top: 3px solid green;
+  border-radius: 0px 25px 0px 0px;
+}
+div.shell-preloader-50 .circle-3-preloader {
+  border-left: 3px solid green;
+  border-bottom: 3px solid green;
+  border-radius: 0px 0px 0px 25px;
+}
+div.shell-preloader-50 .circle-4-preloader {
+  border-right: 3px solid green;
+  border-bottom: 3px solid green;
+  border-radius: 0px 0px 25px 0px;
+}
+div.shell-preloader-50 .cut-1 {
+  clip: rect(0px, 15px, 25px, 0px);
+  clip: rect(0px 15px 25px 0px);/* IE4 to IE7 */
+}
+div.shell-preloader-50 .cut-2 {
+  clip: rect(0px, 50px, 25px, 15px);
+  clip: rect(0px 50px 25px 15px);/* IE4 to IE7 */
+}
+div.versatile { overflow: hidden; }
+
+/* Для ширины окна 850 px и более. */
+@media (min-width: 850px) {
+	.row {
+		
+	}
+}
+
+
+
+
+
+
+
